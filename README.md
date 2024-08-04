@@ -1,118 +1,529 @@
-    1. Check 'where am I?':
+    #1 GIT Homework
+Here I learned how to create repositories, synchronize external and internal repositories and push file to them:
 
-pwd
-answer: the current directory
+4. Create an external repository named "JSON":
+-Go to https://github.com/
+-Press New
+-Input repository name "JSON"
+-Press on checkbox "Add a README file"
+-Press Create a repository
 
-    2. Make a new folder:
+5. Clone the repository "JSON" to the local computer:
+-Press Code
+-Copy link from git
+-Go to the local directory where local repository must be placed
+-Open Git Bash
 
-mkdir new_folder
-     3. Go to the created folder:
+$ git clone from github
+Cloning into 'JSON'...
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+6. In the local "JSON" create a file “new.json”:
+$ cd JSON/
 
-cd new_folder
-the current directory changed ../new_folder
+$ touch new.json
+7. Add the file “new.json” to git (main)
+$ git add new.json
+8. Commit the file “new.json” (main)
+$ git commit -m 'add new.json'
+[main 681c44d] add new.json
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new.json
+9. Send the file “new.json” to the external repository (main)
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 270 bytes | 270.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/JSON.git
+   f21de24..681c44d  main -> main
+10. Update the content of the file “new.json” - add information about myself (SNM, age, pets quantity, future wish salary) using JSON format (main)
+$ vim new.json
+-Press Enter
+-Press INS
 
-    4. Create new folders(three):
+{
+"SNM": "Vitali",
+"age": 38,
+"pets_quantity": 0,
+"future_wish_salary": 2000
+}
+-Press ESC
 
-mkdir folder_1 folder_2 folder_3
-      5. Go to any of these folders:
+:wq
+-Press Enter
 
-cd folder_1
-the current directory changed ../folder_1
+11. Send all changes to the external repository:
+$ git commit -am 'updated new.json'
+warning: LF will be replaced by CRLF in new.json.
+The file will have its original line endings in your working directory
+[main f20e461] updated new.json
+ 1 file changed, 6 insertions(+)  to (main)
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/JSON.git
+   681c44d..f20e461  main -> main
+12. Create a file preferences.json (main)
+$ touch preferences.json
+13. Add to file "preferences.json" information about my preferences (favourite film, favourite series, favourite food, favourite season, country wanted to visit) using JSON format:
+$ vim preferences.json
+-Press Enter
+-Press INS
 
-     6. Create five files (three .txt files and two .json files):
+{
+"favourite film": "Marvel films",
+"favourite series": "The walking dead",
+"favourite food": "meat",
+"favourite season": "Spring",
+"country wanted to visit": "USA"
+}
+-Press ESC
 
-touch file_1.txt file_2.txt file_3.txt file_4.json file_5.json
+:wq
+-Press Enter
 
-      7. Make new folders(three):
+14. Create a file "skills.json", add information about skills that will be learned on the course using JSON format: JSON (main)
+$ cat >> skills.json
 
-mkdir folder_4 folder_5 folder_6
+github/JSON (main)
+$ cat > skills.json
+{
+"first skill": "testing theory",
+"second skill": "git, bash commands",
+"third skill": "Postman",
+"fourth skill": "SQL",
+"fifth skill": "Devtools"
+}
+15. Send 2 files to the external repository:  /d/github/JSON (main)
+$ git add .
+warning: LF will be replaced by CRLF in preferences.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in skills.json.
+The file will have its original line endings in your working directory
+ /d/github/JSON (main)
+$ git commit -m 'add 2 files: skills.json and preferenses.json'
+[main a29f452] add 2 files: skills.json and preferenses.json
+ 2 files changed, 14 insertions(+)
+ create mode 100644 preferences.json
+ create mode 100644 skills.json
+/d/github/JSON (main)
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 619 bytes | 619.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/JSON.git
+   f20e461..a29f452  main -> main
+16. On web interface create a file "bug_report.json":
+-Go to web JSON repository
+-Press Add file, Create new file
+-Input name of the file bug_report.json
 
-      8. Output the list of the current folder:
+17. Save changes on web interface:
+-Press Commit changes
 
-ls
-or
+18. On web interface change the file "bug_report.json" - add bug report in it using JSON format:
+-Enter a file "bug_report.json" on web interface
+-Press Edit this file
 
-ls -la
--l option, displays entries in a long list format
+{
+  "id": 1,
+  "environment": "Windows 10, Chrome 112",
+  "summary": "No icon of the quote in the widget on the main screen",
+  "steps": [
+    "1. open the app",
+    "2. tap on the widget banner",
+    "3. tap on [Confirm]",
+    "4. collapse the app",
+    "5. go to the main screen"
+  ],
+  "ER": "Quote icon is displayed in the widget",
+  "AR": "Quote icon is displayed in the widget",
+  "attachments": "link" 
+}
+19. Save changes on web interface:
+-Press Commit changes
 
--a lists all files including those that begin with ' . '
+20. Synchronize external and local JSON repository:
+-Go to local JSON repository and open bash console
+ /d/github/JSON (main)
+$ git pull
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 1.45 KiB | 14.00 KiB/s, done.
+From github.com  JSON
+   a29f452..c3211d9  main       -> origin/main
+Updating a29f452..c3211d9
+Fast-forward
+ bug_report.json | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+ create mode 100644 bug_report.json
+21. Create an external repository named "XML":
+-Go to https://github.com/
+-Press New
+-Input repository name "XML"
+-Press on checkbox "Add a README file"
+-Press Create a repository
 
-     9. Open one of .txt files:
+22. Clone the repository "XML" to the local computer:
+-Press Code
+-Copy link fron GitHub
+-Go to the local directory where local repository must be placed
+-Open Git Bash
+/d/github
+$ git clone from GitHub XML.git
+Cloning into 'XML'...
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+23. In the local "XML" create a file “new.xml”, /d/github
+$ cd XML/     d/github/XML (main)
+$ touch new.xml
+24. Add the file “new.xml” to git:
+$ git add new.xml
+25. Commit the file “new.xml”:
+$ git commit -m 'new.xml add'
+[main f108225] new.xml add
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new.xml
+26. Send the file “new.xml” to the external repository
+$ git push
+Enter passphrase for key '/c/Users/Hw/.ssh/id_rsa':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 270 bytes | 270.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/XML.git
+   74735d7..f108225  main -> main
+27. Update the content of the file “new.xml” - add information about myself (SNM, age, pets quantity, future wish salary) using XML format
+$ vim new.xml
+-Press Enter
+-Press INS
 
-cat file_1.txt
+<info>
+    <SNM>Vitali Piatrovich</SNM>
+    <age>38</age>
+    <pets_quantity>1</pets_quantity>
+    <future_wish_salary>2000</future_wish_salary>
+</info>
+-Press ESC
 
-      10. Write something in this file +
+:wq
+-Press Enter
 
-      11. Save and quit:
+28. Send all changes to the external repository:
+$ git commit -am 'update new.xml'
+warning: LF will be replaced by CRLF in new.xml.
+The file will have its original line endings in your working directory
+[main a30efca] update new.xml
+ 1 file changed, 6 insertions(+)
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 385 bytes | 385.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/XML.git
+   f108225..a30efca  main -> main
 
-vim file_1.txt
-press i to start editing the file
+29. Create a file preferences.xml:
+$ touch preferences.xml
+30. Add to file "preferences.xml" information about my preferences (favourite film, favourite series, favourite food, favourite season, country wanted to visit) using XML format:
+-Press Enter
+-Press INS
 
-press :wq to quit
+<preferences>
+        <favourite_film>Marvel films</favourite_film>
+        <favourite_series>The walking dead</favourite_series>
+        <favourite_food>meat</favourite_food>
+        <favourit_season>Spring</favourit_season>
+        <country_wanted_to_visit>USA</country_wanted_to_visit>
+</preferences>
 
-      12. To navigate up one directory level:
+-Press ESC
 
-cd ../
+:wq
+-Press Enter
 
-      13. Move any two files to any folder:
+31. Create a file "skills.xml", add information about skills that will be learned on the course using XML format:
 
-mv file_1.txt file_2.txt folder_5 
+vim skills.xml
+-Press Enter
+-Press INS
 
-     14. Copy any two files to any folder:
+<skills>
+        <first_skill>testing theory</first_skill>
+        <second_skill>git, bash commands</second_skill>
+        <third_skill>Postman</third_skill>
+        <fourth_skill>SQL</fourth_skill>
+        <fifth_skill>Devtools</fifth_skill>
+</skills>
+-Press ESC
 
-cp file_1.txt file_2.txt folder_4
-first step - change directory /folder_5, next step - copy files into point directory
+:wq
+-Press Enter
 
-     15. Find a file by name:
+32. Create commit in one line:
+We can't create commit in one line in this case because 2 new files "preferences.xml" and "skills.xml" were not added.
 
-find . -name file_6.txt
+$ git add .
+warning: LF will be replaced by CRLF in preferences.xml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in skills.xml.
+The file will have its original line endings in your working directory
 
-    16. Show file content in real time, with 'grep' to find any word
+$ git commit -m 'commit 2 xml files'
+[main 84abfff] commit 2 xml files
+ 2 files changed, 20 insertions(+)
+ create mode 100644 preferences.xml
+ create mode 100644 skills.xml
+33. Send 2 files to the external repository:
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 617 bytes | 617.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/XML.git
+  a30efca..84abfff  main -> main
+34. On web interface create a file "bug_report.xml":
+-Go to web XML repository
+-Press [Add file], [Create new file]
+-Input name of the file bug_report.xml
 
-tail -f file_1.txt
--f option causes tail to not stop when end of file is reached, but rather to wait for additional data to be appended to the input
+35. Save changes on web interface:
+-Press Commit changes
 
-     17. Output several first lines from the text file:
+36. On web interface change the file "bug_report.xml" - add bug report in it using XML format:
+-Enter a file "bug_report.xml" on web interface
+-Press Edit this file
 
-head -2 file_1.txt  
+<bug_report>
+  <id>1</id>
+  <environment>Windows 10, Chrome 112</environment>
+  <summary>No icon of the quote in the widget on the main screen</summary>
+  <steps>
+    <step1>open the app</step1>
+    <step2>tap on the widget banner</step2>
+    <step3>tap on [Confirm]</step3>
+    <step4>collapse the app</step4>
+    <step5> go to the main screen</step5>
+  </steps>
+  <ER>Quote icon is displayed in the widget</ER>
+  <AR>Quote icon is displayed in the widget</AR>
+  <attachments>link</attachments>
+</bug_report>
+37. Save changes on web interface:
+-Press Commit changes
 
-      18. Output several last lines from the text file:
+38. Synchronize external and local XML repository:
+-Go to local XML repository and open bash console
 
-tail -2 file_1.txt  
+$ git pull
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 1.48 KiB | 9.00 KiB/s, done.
+From github.com:artemlat/XML
+   84abfff..4dffa14  main       -> origin/main
+Updating 84abfff..4dffa14
+Fast-forward
+ bug_report.xml | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+ create mode 100644 bug_report.xml
+39. Create an external repository named "TXT":
+-Go to https://github.com/
+-Press New
+-Input repository name "TXT"
+-Press on checkbox "Add a README file"
+-Press Create a repository
 
-      19. View content of a large file:
+40. Clone the repository "TXT" to the local computer:
+-Press Code -Copy link git@github.com:artemlat/TXT.git -Go to the local directory where local repository must be placed -Open Git Bash
 
-less file_9.txt
+$ git clone git@github.com:artemlat/TXT.git
+Cloning into 'TXT'...
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+41. In the local "TXT" create a file “new.txt”:
+$ cd TXT/
+$ touch new.txt
+42. Add the file “new.txt” to git:
+$ git add .
+43. Commit the file “new.txt”:
+$ git commit -am 'add file new.txt'
+[main 88795f0] add file new.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 new.txt
+44. Send the file “new.txt” to the external repository:
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 272 bytes | 272.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/TXT.git
+   ed35a3b..88795f0  main -> main
+45. Update the content of the file “new.txt” - add information about myself (SNM, age, pets quantity, future wish salary) using TXT format:
+-Press Enter
+-Press INS
 
-      20. View current date and time:
+SNM: Patrovich Vitali,
+age: 38,
+pets_quantity: 0,
+future_wish_salary: 2000
+-Press ESC
 
-date
-Send http request to server:
+:wq
+46. Send all changes to the external repository.
+$ git commit -am 'update of new.txt'
+warning: LF will be replaced by CRLF in new.txt.
+The file will have its original line endings in your working directory
+[main 9100449] update of new.txt
+ 1 file changed, 4 insertions(+)
 
-curl http://162.55.220.72:5005/terminal-hw-request
-💫 Write a script that will execute the next steps 3, 4, 5, 6, 7, 8, 13:
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 360 bytes | 360.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:artemlat/TXT.git
+   88795f0..9100449  main -> main
+47. Create a file preferences.txt.
+$ touch preferences.txt
+48. Add to file "preferences.txt" information about my preferences (favourite film, favourite series, favourite food, favourite season, country wanted to visit) using TXT format.
+$ vim preferences.txt
+-Press Enter
+-Press INS
 
-file script_1.sh
+{
+favourite film: Marvel films,
+favourite series: The walking dead,
+favourite food: meat,
+favourite season: Spring,
+country wanted to visit: Norway
+}
+-Press ESC
 
-command . /Users/<user_name>/my_scripts/script_1.sh
+:wq
+49. Create a file "skills.txt", add information about skills that will be learned on the course using TXT format.
+$ touch skills.txt
+$ vim skills.txt
+-Press Enter
+-Press INS
 
-echo "Current directory: $(pwd)"
+first skill: testing theory,
+second skill: git, bash commands,
+third skill: Postman,
+fourth skill: SQL,
+fifth skill: Devtools
+-Press ESC
 
-cd /Users/<user_name>/new_folder
+:wq
+50. Create commit in one line:
+We can't create commit in one line in this case because 2 new files "preferences.txt" and "skills.txt" were not added.
+$ git add .
+warning: LF will be replaced by CRLF in preferences.txt.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in skills.txt.
+The file will have its original line endings in your working directory
+$ git commit -am 'add 2 new files'
+[main da03be3] add 2 new files
+ 2 files changed, 10 insertions(+)
+ create mode 100644 preferences.txt
+ create mode 100644 skills.txt
+51. Send 2 files to the external repository:
+$ git push
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 541 bytes | 541.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com (TXT.git)
+   9100449..da03be3  main -> main
+52. On web interface create a file "bug_report.txt":
+-Go to web TXT repository
+-Press Add file, Create new file
+-Input name of the file bug_report.txt
 
-echo "New directory: $(pwd)"
+53. Save changes on web interface:
+-Press Commit changes
 
-mkdir folder_7 folder_8 folder_9 
+54. On web interface change the file "bug_report.txt" - add bug report in it using TXT format:
+-Enter a file "bug_report.xml" on web interface
+-Press Edit this file
 
-echo "New folder structure: $(ls -la)" 
+bug_report
+  id: 1
+  environment: Windows 10, Chrome 112
+  summary: No icon of the quote in the widget on the main screen
+  steps:
+    step1: open the app
+    step2: tap on the widget banner
+    step3: tap on [Confirm]
+    step4: collapse the app
+    step5: go to the main screen
+  
+  ER: Quote icon is displayed in the widget
+  AR: Quote icon is displayed in the widget
+  attachments: link
+55. Save changes on web interface:
+-Press Commit changes
 
-mv file_7.txt file_8.txt /Users/<user_name>/new_folder/folder_3
-
-echo "New files place: $(ls -la)" 
-
-touch file_6.txt file_7.txt file_8.txt file_9.json file_10.json
-
-echo "New file structure: $(ls -la)"
+56. Synchronize external and local XML repository:
+-Go to local XML repository and open bash console
+$ git pull
+Enter passphrase for key '/c/Users/HW/.ssh/id_rsa':
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 1.43 KiB | 14.00 KiB/s, done.
+From github.com  
+   da03be3..900fb0f  main  -> origin/main
+Updating da03be3..900fb0f
+Fast-forward
+ bug_report.txt | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+ create mode 100644 bug_report.txt
 
 
 
